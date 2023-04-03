@@ -1,0 +1,106 @@
+html {
+  scroll-behavior: smooth;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  margin: 0;
+  padding: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: #FFFFFF;
+}
+img {
+  max-width: 100%;
+}
+:root {
+  --btncolor: #EA4335;
+  --hovercolor: #b31b0e;
+  --padding: 1rem;
+  --heading: #122738;
+}
+.cards-holder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  align-items: flex-start;
+
+  .card {
+    background-color: #FFFFFF;
+    border: 1px solid #0D3A58;
+    border-radius: .25rem;
+    overflow: hidden;
+  }
+  .card.card-boxshadow {
+    border: none;
+    box-shadow: 0 3px 6px 0 rgba($color: #000000, $alpha: 0.3);
+    transition: all 300ms ease-in-out;
+  }
+  .card.card-boxshadow:hover {
+    box-shadow: 3px 5px 8px 0 rgba($color: #000000, $alpha: 0.5) ;
+  }
+  .card-header {
+    font-size: 1.275rem;
+    padding: var(--padding);
+    color: var(--heading);
+  }
+  .card-header.card-image {
+    padding: 0;
+    overflow: hidden;
+  }
+  .card-header.card-image img {
+    display: block;
+    width: 100%;
+    max-height: 200px;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.5s ease-in-out;
+    // only for production
+    padding: 0;
+    border: none;
+  }
+  .card-body {
+    padding: var(--padding);
+    font-size: 1rem;
+    color: black;
+    line-height: 1.7;
+  }
+  .card-footer {
+    padding: var(--padding);
+    .btn {
+      background-color: var(--btncolor);
+      border: none;
+      padding: .5em 1.125rem;
+      color: white;
+      cursor: pointer;
+      border-radius: 25px;
+      font-size: .8rem;
+      text-transform: uppercase;
+      transition: background-color 0.7s ease-in-out;
+    }
+    .btn.btn-outline {
+      background: none;
+      border: 1px solid var(--btncolor);
+      color: var(--hovercolor);
+    }
+    .btn:hover {
+      background-color: var(--hovercolor);
+    }
+    .btn.btn-outline:hover {
+      color: white;
+    }
+    .btn + .btn {
+      margin-left: 1rem;
+    }
+  }
+  .card:hover > .card-header.card-image > img {
+    transform: scale(1.1);
+  }
+  .card:hover:not(.card-boxshadow) > .card-body {
+    color: var(--hovercolor);
+  }
+}
+
